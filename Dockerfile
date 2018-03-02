@@ -4,17 +4,13 @@ FROM runmymind/docker-android-sdk:alpine-standalone
 # https://github.com/nodejs/docker-node/blob/master/8/alpine/Dockerfile
 ENV NODE_VERSION 8.9.4
 
-RUN addgroup -g 1000 node \
-    && adduser -u 1000 -G node -s /bin/sh -D node \
-    && apk add --no-cache \
-        libstdc++ \
+RUN addgroup -g 1001 node \
+    && adduser -u 1001 -G node -s /bin/sh -D node \    
     && apk add --no-cache --virtual .build-deps \
-        binutils-gold \
-        curl \
+        binutils-gold \        
         g++ \
         gcc \
-        gnupg \
-        libgcc \
+        gnupg \        
         linux-headers \
         make \
         python \
